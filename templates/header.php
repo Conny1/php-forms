@@ -8,8 +8,9 @@
 <body>
 	<nav>
 		<div><p>Welcome to Forms</p></div>
-		<a href="#">Submitted info</a>
-		<a href="#">Add</a>
+		<a href="info.php">Submitted info</a>
+		<a href="index.php">Add</a>
+
 
 	</nav>
 

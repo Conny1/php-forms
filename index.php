@@ -1,5 +1,6 @@
 <?php 
 // DB connection file
+
 include('config/db_config.php');
 
 $name = $email = $phoneNumber = '';
@@ -45,22 +46,22 @@ if(array_filter($errors)){
 }else{
 	// echo 'No errors were found';
 // securing the info 
-	
-	$name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $phoneNumber = mysqli_real_escape_string($conn, $_POST['phoneNumber']);
+	$Email = mysqli_real_escape_string($conn, $email);
+	$Name = mysqli_real_escape_string($conn, $name);
+	$phone_number = mysqli_real_escape_string($conn, $phoneNumber);
 
-    // creating the sql querry
-    $sql = "INSERT INTO contact (name, email, phone) VALUES ('$name','$email', '$phoneNumber')";
+	// creating sql queries
 
-    // save to the database
-    if(mysqli_query($conn,$sql)){
-    	echo 'Data saved succesfully';
-    }else{
-    	echo 'Error saving info to database' . mysql_error();
-    }
+	$sql = "INSERT INTO contact(name, email, phone) VALUES ('$Name','$Email', '$phone_number')";
 
+	// save to db and check
 
+	if(mysqli_query($conn, $sql)){
+		echo "Success";
+		mysqli_close($conn);
+	}else{
+		echo 'Error sending' . mysqli_error();
+	}
 
 	$email = $phoneNumber =$name ='';
 

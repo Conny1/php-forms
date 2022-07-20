@@ -1,13 +1,13 @@
 <?php 
 
-// data base connection
+// connecting to the data base
 
-$conn = mysqli_connect('localhost','mbuya','12345678', 'contactform');
+$conn =  mysqli_connect('localhost', 'mbuya', '12345678', 'contactForm');
 
 if(!$conn){
-	echo "Errror connecting to the database!!". mysqli_connect_error();
-}
 
+	echo "Error connecting!!" . mysqli_connect_error();
+}
 
 
  ?>
